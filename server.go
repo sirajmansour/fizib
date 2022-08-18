@@ -90,7 +90,7 @@ func (srv *Server) SignUp() http.HandlerFunc {
 
 func (srv *Server) LogIn() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		t, err := template.ParseFiles(htmlPagesPath + "logIn.html")
+		t, err := template.ParseFiles(htmlPagesPath + "logIn/index.html")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -173,6 +173,6 @@ func (srv *Server) LogIn() http.HandlerFunc {
 func (srv *Server) Welcome() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
-		http.ServeFile(w, r, `C:\HtmlPages\html\welcome.html`)
+		http.ServeFile(w, r,htmlPagesPath + "welcome/index.html")
 	}
 }
